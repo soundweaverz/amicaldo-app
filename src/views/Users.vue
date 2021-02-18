@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <table>
+  <div class="users">
+    <table class="user-table">
       <thead>
         <tr>
           <th>Image</th>
@@ -11,15 +11,15 @@
       </thead>
       <tbody>
         <tr v-for="(user, index) in users" :key="index">
-          <th>
+          <td>
             <img
               src="https://spielerfreunde.de/assets/images/pubgm/crews/189/keepPLO.jpg"
-              alt="Picture"
+              alt="Crew picture"
             />
-          </th>
-          <th>{{ user.name }}</th>
-          <th>{{ user.ingameID ? user.ingameID : "No ID present." }}</th>
-          <th>{{ user.active ? "&check;" : "&#x274C;" }}</th>
+          </td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.ingameID ? user.ingameID : "No ID present." }}</td>
+          <td>{{ user.active ? "&check;" : "&#x274C;" }}</td>
         </tr>
       </tbody>
     </table>
@@ -42,3 +42,47 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.users {
+  display: flex;
+  justify-content: center;
+}
+.user-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+
+  th,
+  td {
+    padding: 10px 20px;
+    border: 1px solid black;
+  }
+
+  th {
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+
+  td {
+    border-left: none;
+    border-bottom: none;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+    display: block;
+  }
+}
+</style>
