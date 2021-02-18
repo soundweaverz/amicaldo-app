@@ -1,6 +1,6 @@
 <template>
   <div class="users">
-    <table class="user-table">
+    <table v-if="users.length !== 0" class="user-table">
       <thead>
         <tr>
           <th>Image</th>
